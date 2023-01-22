@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "SystemStatusService";
+
+package greet;
+
+service Greeter {
+ rpc info (login_request) returns (response);
+ rpc process (login_request) returns (response);
+ rpc command (command_request) returns (response);
+ rpc login (login_request) returns (response);
+}
+
+message login_request{
+    string token=1;
+}
+
+message command_request{
+	string token=1;
+	string cmd=2;
+}
+
+message response{
+	bool status=1;
+	string message=2;
+}
